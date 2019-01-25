@@ -15,7 +15,7 @@ massive(process.env.CONNECTION_STRING).then((db) =>
 app.get('/api/products', contrlr.getAll);
 app.get('/api/products/:id', contrlr.getOne);
 app.post('/api/products', contrlr.postOne);
-app.put('/api/products/:id', contrlr.updateOne);
+app.put('/api/products', contrlr.updateOne);
 app.delete('/api/products/:id',contrlr.deleteOne)
 
 // requests go here ^^^^

@@ -86,20 +86,21 @@ class Form extends Component
         const updatedProduct = {
             name: this.state.name,
             price: this.state.price,//parseInt(this.state.price, 10),
-            img: this.state.imgurl
+            img: this.state.imgurl,
+            id: id
         }
         //axios request make sure to use a parse int on the price.
-        axios.put(`/api/products/${id}`, updatedProduct)
+        axios.put(`/api/products`, updatedProduct)
         .then((response) =>
         {
-            console.log(response.data);
+            console.log(response.status);
         })
         .catch((error) =>
         {
             console.log("error", error);
         });
         
-    //    console.log("updated", updatedProduct);
+       console.log("updated", updatedProduct);
     }
 
     clearInputs()
