@@ -6,16 +6,21 @@ const contrlr = require('./controllers/controller');
 
 const app = express();
 app.use(bodyParser.json());
+// app.use(express.static(__dirname + './../build'));
 massive(process.env.CONNECTION_STRING).then((db) =>
 {
     app.set('db', db);
 });
 
-// requests go here
-//
-//
-//__________________
-PORT=process.env.PORT || 3000;
+app.get('/api/products', contrlr.getAll);
+app.get('/api/products/:id', contrlr.getOne);
+app.post('/api/products', contrlr.postOne);
+app.put('/api/products/:id', contrlr.updateOne);
+app.delete('/api/products/:id',contrlr.deleteOne)
+
+// requests go here ^^^^
+
+PORT=process.env.SERVER_PORT || 3000;
 
 app.listen(PORT, () =>
 {
