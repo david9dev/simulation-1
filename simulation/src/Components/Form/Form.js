@@ -1,6 +1,7 @@
 import React , {Component} from 'react';
 import axios from 'axios';
 import './Form.css';
+import { toast } from 'react-toastify';
 
 class Form extends Component
 {
@@ -71,6 +72,7 @@ class Form extends Component
         .then((response) =>
         {
             console.log(response.data);
+            toast.success('Item added');
         })
         .catch((error) =>
         {

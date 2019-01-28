@@ -4,6 +4,8 @@ import axios from 'axios';
 import Header from './Components/Header/Header';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Form from './Components/Form/Form';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 class App extends Component {
@@ -32,6 +34,7 @@ class App extends Component {
     return (
       <Router>
         <div className="window">
+          <ToastContainer/>
           <Header/>
           <Switch>
             <Route path='/form/:edit/:id' component={Form}/>
